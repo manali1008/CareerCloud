@@ -37,7 +37,7 @@ namespace CareerCloud.BusinessLogicLayer
                     exceptions.Add(new ValidationException(600, "Company name must ends with following extensions .ca, .com, .biz: CompanyProfilePoco"));
                 }
 
-                if (string.IsNullOrEmpty(poco.ContactPhone) || !Regex.Match(poco.ContactPhone, @"\[0-9]{3}-[0-9]{3}-[0-9]{4}").Success)
+                if (string.IsNullOrEmpty(poco.ContactPhone) || !(Regex.Match(poco.ContactPhone, @"[0-9]{3}-[0-9]{3}-[0-9]{4}").Success))
                 {
                     exceptions.Add(new ValidationException(601, "Contact phone must be in 000-000-0000 format: CompanyProfilePoco"));
                 }
