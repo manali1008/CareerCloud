@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+
+option csharp_namespace = "CareerCloud.gRPC.Protos";
+
+package CareerCloud.gRPC;
+
+service SecurityLoginsLogService{
+	rpc GetSecurityLoginsLog(SecLoginsLogIdRequest) returns(SecurityLoginsLog);
+	rpc CreateSecurityLoginsLog(SecurityLoginsLogs) returns(google.protobuf.Empty);
+	rpc UpdateApplcantEducation(SecurityLoginsLogs) returns(google.protobuf.Empty);
+	rpc DeleteApplcantEducation(SecurityLoginsLogs) returns(google.protobuf.Empty);
+}
+
+message SecLoginsLogIdRequest{
+		string Id = 1;
+		}
+
+message SecurityLoginsLog{
+		string Id = 1;
+        string Login = 2;
+        string SourceIP = 3;
+        google.protobuf.Timestamp LogonDate = 4;
+	}
+
+message SecurityLoginsLogs{
+	repeated SecurityLoginsLog SecLoginsLog = 1;
+}
